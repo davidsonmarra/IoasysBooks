@@ -1,6 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
 import profile from './profileSlice';
-// import books from './booksSlice';
+import books from './booksSlice';
 
-export default combineReducers({ profile });
+export default combineReducers({ profile, books });
