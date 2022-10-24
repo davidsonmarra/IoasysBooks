@@ -6,7 +6,7 @@ export default {
     background: '#E5E5E5',
     dark: '#333333',
     details: '#999999',
-    alert: 'red'
+    alert: '#FF2121'
   },
   fonts: {
     regular: 'Heebo-Regular',

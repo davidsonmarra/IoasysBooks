@@ -16,6 +16,18 @@ import TitleSvg from '../../assets/title.svg';
 import LogoSvg from '../../assets/logo.svg';
 import background from '../../assets/background.png';
 import Toast from 'react-native-toast-message';
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  interpolate,
+  withTiming,
+  Easing,
+  Extrapolate
+} from 'react-native-reanimated';
+import { useDispatch, useSelector } from 'react-redux';
+import { LOGIN } from '../../store/slices/profileSlice';
+import { IRootState } from '../../store/store';
+import { isObjectEmpty } from '../../utils';
 
 export interface IFormSignIn {
   email: string;
@@ -23,24 +35,46 @@ export interface IFormSignIn {
 }
 
 export function SignIn() {
+  const { error } = useSelector(({ profile }: IRootState) => profile);
+
+  const dispatch = useDispatch();
+  const animation = useSharedValue(0);
+
+  const animationStyleLogo = useAnimatedStyle(() => ({
+    marginRight: interpolate(animation.value, [0, 1], [-16.6, 16.6], Extrapolate.CLAMP),
+    left: interpolate(animation.value, [0, 1], [50, 0], Extrapolate.CLAMP),
+    opacity: interpolate(animation.value, [0, 1], [0, 1])
+  }));
+
+  const animationStyleTitle = useAnimatedStyle(() => ({
+    right: interpolate(animation.value, [0, 1], [50, 0], Extrapolate.CLAMP),
+    opacity: interpolate(animation.value, [0, 1], [0, 1])
+  }));
+
+  const animationStyleForm = useAnimatedStyle(() => ({
+    opacity: interpolate(animation.value, [0, 1], [0, 1])
+  }));
+
   const {
     control,
     formState: { errors },
     clearErrors,
     getValues,
+    setError,
     handleSubmit
   } = useForm<IFormSignIn>({
     resolver: yupResolver(schema),
     mode: 'onSubmit',
-    reValidateMode: 'onSubmit'
+    reValidateMode: 'onChange'
   });
 
-  const onSubmit = ({ email, password }: IFormSignIn) => {
-    console.log(email, password);
+  const onSubmit = (form: IFormSignIn) => {
+    Keyboard.dismiss();
+    dispatch(LOGIN(form));
   };
 
   useEffect(() => {
-    Object.keys(errors).length > 0 &&
+    isObjectEmpty(errors) &&
       Toast.show({
         type: 'error',
         text1: 'Ops... algo não funcionou corretamente',
@@ -53,6 +87,27 @@ export function SignIn() {
       });
   }, [errors]);
 
+  useEffect(() => {
+    animation.value = withTiming(1, { duration: 1200, easing: Easing.in(Easing.ease) });
+  }, []);
+
+  useEffect(() => {
+    if (isObjectEmpty(error)) {
+      setError('email', new Error('Login inválido. Tente novamente'));
+      setError('password', new Error('Login inválido. Tente novamente'));
+      Toast.show({
+        type: 'error',
+        text1: 'Ops... algo não funcionou corretamente',
+        text2: errors.email?.message || errors.password?.message,
+        props: {
+          style: {
+            background: 'red'
+          }
+        }
+      });
+    }
+  }, [error]);
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <KeyboardAvoidingView
@@ -63,10 +118,14 @@ export function SignIn() {
           <StatusBar barStyle='light-content' backgroundColor='transparent' translucent />
           <StyledBackground source={background} />
           <StyledTitle>
-            <StyledLogo />
-            <TitleSvg />
+            <Animated.View style={[animationStyleLogo]}>
+              <LogoSvg />
+            </Animated.View>
+            <Animated.View style={[animationStyleTitle]}>
+              <TitleSvg />
+            </Animated.View>
           </StyledTitle>
-          <StyledForm>
+          <AnimatedForm style={[animationStyleForm]}>
             <Input
               name='email'
               placeholder='Email'
@@ -74,8 +133,10 @@ export function SignIn() {
               autoCapitalize='none'
               control={control}
               error={errors['email']}
+              canClearErrorOnFocus={isObjectEmpty(error)}
               getValue={getValues}
               clearErrors={clearErrors}
+              errors={errors}
             />
             <Input
               name='password'
@@ -86,23 +147,25 @@ export function SignIn() {
               control={control}
               error={errors['password']}
               getValue={getValues}
+              canClearErrorOnFocus={isObjectEmpty(error)}
               onSubmit={handleSubmit(onSubmit)}
               clearErrors={clearErrors}
+              errors={errors}
             />
-          </StyledForm>
+          </AnimatedForm>
         </StyledContainer>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
   );
 }
 
-export const StyledContainer = styled.View`
+const StyledContainer = styled.View`
   flex: 1;
   justify-content: center;
   padding: 0 ${RFValue(16)}px;
 `;
 
-export const StyledBackground = styled.ImageBackground`
+const StyledBackground = styled.ImageBackground`
   position: absolute;
   top: 0;
   bottom: 0;
@@ -110,14 +173,12 @@ export const StyledBackground = styled.ImageBackground`
   right: 0;
 `;
 
-export const StyledLogo = styled(LogoSvg)`
-  margin-right: ${RFValue(16.6)}px;
-`;
-
-export const StyledTitle = styled.View`
+const StyledTitle = styled.View`
   flex-direction: row;
   align-items: center;
   margin-bottom: ${RFValue(50)}px;
 `;
 
-export const StyledForm = styled.View``;
+const StyledForm = styled.View``;
+
+const AnimatedForm = Animated.createAnimatedComponent(StyledForm);

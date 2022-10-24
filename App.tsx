@@ -15,6 +15,8 @@ import theme from './src/global/styles/theme';
 import { Routes } from './src/routes';
 import Toast, { ErrorToast, ToastOptions } from 'react-native-toast-message';
 import { RFValue } from 'react-native-responsive-fontsize';
+import store from './src/store';
+import { Provider } from 'react-redux';
 
 function App() {
   const toastConfig = {
@@ -32,11 +34,13 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <StatusBar barStyle='dark-content' backgroundColor={theme.colors.background} translucent />
-      <Routes />
-      <Toast config={toastConfig} />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <StatusBar barStyle='dark-content' backgroundColor={theme.colors.background} translucent />
+        <Routes />
+        <Toast config={toastConfig} />
+      </ThemeProvider>
+    </Provider>
   );
 }
 

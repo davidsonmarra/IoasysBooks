@@ -1,55 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TouchableOpacityProps } from 'react-native';
-// import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
-// import api from '../../services/api';
-// import { IRootState } from '../../store/store';
-// import { CHANGE_IS_LOGGED, CHANGE_TOKEN } from '../../store/slices/loginSlice';
+import { useSelector } from 'react-redux';
+import { IRootState } from '../../store/store';
 
 type Props = TouchableOpacityProps;
 
-export function Button({ ...rest }: Props) {
-  const [loading, setLoading] = useState(false);
-
-  // const { email, password } = useSelector(({ login }: IRootState) => login);
-  // const dispatch = useDispatch();
-
-  // async function handleLogin() {
-  //   // 'desafio@ioasys.com.br'
-  //   // '12341234'
-  //   setLoading(true);
-  //   Keyboard.dismiss();
-
-  //   try {
-  //     const { data, headers } = await api.post('/auth/sign-in', {
-  //       email,
-  //       password,
-  //     });
-  //     dispatch(
-  //       CHANGE_TOKEN({
-  //         token: headers.authorization,
-  //         id: data.id,
-  //         refresh: headers['refresh-token'],
-  //       })
-  //     );
-  //     setLoading(false);
-  //     dispatch(CHANGE_IS_LOGGED(true));
-  //   } catch (error: any) {
-  //     setLoading(false);
-  //     Alert.alert('Algo não funcionou corretamente!', error.response.data.errors.message);
-  //   }
-  // }
+export function Button({ disabled, ...rest }: Props) {
+  const { isLoading } = useSelector(({ profile }: IRootState) => profile);
 
   return (
-    <StyledContainer {...rest}>
-      {loading ? <StyledLoading /> : <StyledTitle>Entrar</StyledTitle>}
+    <StyledContainer disabled={disabled || isLoading} {...rest}>
+      {isLoading ? <StyledLoading /> : <StyledTitle>Entrar</StyledTitle>}
     </StyledContainer>
   );
 }
 
 const StyledContainer = styled.TouchableOpacity`
   width: ${RFValue(85)}px;
+  height: ${RFValue(40)}px;
   justify-content: center;
   align-items: center;
   align-self: center;
@@ -57,7 +27,7 @@ const StyledContainer = styled.TouchableOpacity`
   padding: ${RFValue(8)}px 0;
   border-radius: ${RFValue(44)}px;
   background-color: ${({ theme }) => theme.colors.shape};
-  /* opacity: ${({ disabled }) => (disabled ? 0.3 : 1)}; */
+  opacity: ${({ disabled }) => (disabled ? 0.3 : 1)};
 `;
 
 const StyledLoading = styled.ActivityIndicator.attrs(({ theme }) => ({
