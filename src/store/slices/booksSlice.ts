@@ -31,9 +31,10 @@ const counterSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
-    FETCH_BOOKS: (state, { payload: _ }: PayloadAction<IFetchBooks>) => ({
+    FETCH_BOOKS: (state, { payload }: PayloadAction<IFetchBooks>) => ({
       ...state,
       loadingFetchBooks: true,
+      category: payload.category,
       error: {} as Error | AxiosError
     }),
     FETCH_BOOKS_SUCCESS: (state, { payload }: PayloadAction<BookDTO[]>) => ({

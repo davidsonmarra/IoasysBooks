@@ -48,7 +48,7 @@ export function Input({
 
   const animationPlaceholder = useSharedValue(getValue(name) ? 1 : 0);
 
-  const animationErrorInput = useDerivedValue(() => withTiming(error ? 1 : 0, { duration: 350 }));
+  const animationErrorInput = useDerivedValue(() => withTiming(error ? 1 : 0, { duration: 550 }));
 
   const animationStylePlaceholder = useAnimatedStyle(() => ({
     bottom: interpolate(animationPlaceholder.value, [0, 1], [8, 38], Extrapolate.CLAMP),

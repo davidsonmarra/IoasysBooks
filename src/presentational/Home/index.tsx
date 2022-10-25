@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  FlatListProps,
-  FlatList,
-  Keyboard,
-  KeyboardAvoidingView,
-  Platform,
-  StatusBar,
-  TouchableWithoutFeedback
-} from 'react-native';
+import { FlatListProps, FlatList, Keyboard } from 'react-native';
 import styled from 'styled-components/native';
 import LogoSvg from '../../assets/logo-dark.svg';
 import FilterSvg from '../../assets/filter.svg';
@@ -83,7 +75,7 @@ export function Home() {
           <StyledLogo />
           <TitleSvg />
         </StyledTitle>
-        <StyledLogoutButton onPress={() => handleLogout()}>
+        <StyledLogoutButton onPress={handleLogout}>
           <LogoutSvg />
         </StyledLogoutButton>
       </StyledHeader>
@@ -93,9 +85,9 @@ export function Home() {
           placeholder='Procure um livro'
           value={searchInput}
           onChangeText={setSearchInput}
-          onSubmit={() => handleSearch()}
+          onSubmit={handleSearch}
         />
-        <StyledFilterButton onPress={() => handleFilterModal()}>
+        <StyledFilterButton onPress={handleFilterModal}>
           <StyledFilter />
         </StyledFilterButton>
       </StyledSearch>

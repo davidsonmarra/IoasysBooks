@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { ModalProps } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 // import { FETCH_BOOKS, RESET_BOOKS } from '../store/slices/booksSlice';
-import { IRootState } from '../store/store';
+// import { IRootState } from '../store/store';
 import { categories } from '../utils/categories';
 import { CategoryProps } from '../@types/CategoryProps';
 import CloseSvg from '../assets/close.svg';

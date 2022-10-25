@@ -1,8 +1,8 @@
 import BookDTO from './BookDTO';
 
-type AuthRootStackParamList = {
+interface AuthRootStackParamList {
   HomeScreen: undefined;
   BookDetailsScreen: { book: BookDTO };
-};
+}
 
 export default AuthRootStackParamList;

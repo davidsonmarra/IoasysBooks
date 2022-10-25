@@ -12,7 +12,7 @@ import {
 } from '../slices/profileSlice';
 
 async function requestSignIn(email: string, password: string) {
-  return await api
+  return api
     .post('/auth/sign-in', {
       email,
       password
@@ -35,7 +35,6 @@ function* login({ payload: { email, password } }: ReturnType<typeof LOGIN>) {
     yield put(LOGIN_SUCCESS(headers.authorization));
   } catch (error) {
     if (error instanceof AxiosError || error instanceof Error) yield put(LOGIN_FAILURE(error));
-    else throw error;
   }
 }
 
