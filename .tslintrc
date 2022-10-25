@@ -1,6 +1,0 @@
-modules:
-  - name: tslint
-    enabled: true
-    rules:
-      - key: 'TSLINT-TS-47'
-        enabled: false
