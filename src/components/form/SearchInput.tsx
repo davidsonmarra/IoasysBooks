@@ -1,26 +1,44 @@
-import React from 'react';
-import { TextInputProps } from 'react-native';
+import React, { useRef } from 'react';
+import { TextInput, TextInputProps } from 'react-native';
 import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import SearchSvg from '../../assets/search.svg';
+import { Control, Controller } from 'react-hook-form';
+import { IFormSearch } from '../../presentational/Home';
 
 interface Props extends TextInputProps {
-  name: string;
-  onSubmit: () => void;
+  control: Control<IFormSearch>;
+  name: keyof IFormSearch;
+  onSubmit?: () => void;
 }
 
-export function SearchInput({ onSubmit, ...rest }: Props) {
+export function SearchInput({ onSubmit, control, name, ...rest }: Props) {
+  const inputRef = useRef<TextInput>(null);
+
+  const onFocus = () => {
+    inputRef.current?.focus();
+  };
+
   return (
-    <StyledContainer>
-      <StyledFormInput {...rest} />
-      <StyledSearchButton onPress={onSubmit}>
-        <StyledSearchIcon />
-      </StyledSearchButton>
-    </StyledContainer>
+    <Controller
+      control={control}
+      rules={{
+        required: true
+      }}
+      name={name}
+      render={({ field: { onChange, value } }) => (
+        <StyledContainer onPress={onFocus}>
+          <StyledFormInput onChangeText={onChange} value={value} ref={inputRef} {...rest} />
+          <StyledSearchButton onPress={onSubmit}>
+            <StyledSearchIcon />
+          </StyledSearchButton>
+        </StyledContainer>
+      )}
+    />
   );
 }
 
-export const StyledContainer = styled.View`
+export const StyledContainer = styled.TouchableOpacity`
   width: 85%;
   height: ${RFValue(60)}px;
   flex-direction: row;
@@ -32,8 +50,10 @@ export const StyledContainer = styled.View`
 
 export const StyledFormInput = styled.TextInput`
   flex: 1;
+  height: 100%;
   align-self: flex-end;
   font-family: ${({ theme }) => theme.fonts.regular};
+  font-size: ${RFValue(14)}px;
   color: ${({ theme }) => theme.colors.dark};
 `;
 

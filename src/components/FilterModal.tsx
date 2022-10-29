@@ -3,11 +3,10 @@ import { ModalProps } from 'react-native';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
-// import { FETCH_BOOKS, RESET_BOOKS } from '../store/slices/booksSlice';
-// import { IRootState } from '../store/store';
 import { categories } from '../utils/categories';
 import { CategoryProps } from '../@types/CategoryProps';
 import CloseSvg from '../assets/close.svg';
+import { FETCH_BOOKS, RESET_BOOKS } from '../store/slices/booksSlice';
 
 interface PropsStyle {
   isSelected: boolean;
@@ -16,28 +15,25 @@ interface PropsStyle {
 interface Props extends ModalProps {
   handleModal: () => void;
   setOffset: React.Dispatch<React.SetStateAction<number>>;
+  getSearch: () => string;
 }
 
-export function FilterModal({ visible, handleModal, setOffset }: Props) {
-  const [category, setCategory] = useState<CategoryProps>({
-    key: '',
-    title: ''
-  });
+export function FilterModal({ visible, handleModal, setOffset, getSearch }: Props) {
+  const [category, setCategory] = useState({} as CategoryProps);
   const dispatch = useDispatch();
-  // const { search } = useSelector(({ books }: IRootState) => books);
 
   function handleSelectCategory(cat: CategoryProps) {
     if (category.key === cat.key) {
-      setCategory({ key: '', title: '' });
+      setCategory({} as CategoryProps);
     } else {
       setCategory(cat);
     }
   }
 
   function submit() {
-    // dispatch(RESET_BOOKS());
+    dispatch(RESET_BOOKS());
+    dispatch(FETCH_BOOKS({ offset: 1, category, search: getSearch() || '' }));
     setOffset(1);
-    // dispatch(FETCH_BOOKS({ offset: 1, category, search }));
     handleModal();
   }
 
@@ -71,7 +67,7 @@ export function FilterModal({ visible, handleModal, setOffset }: Props) {
               ))}
             </StyledCategories>
           </StyledCategory>
-          <StyledSubmit onPress={() => submit()}>
+          <StyledSubmit onPress={submit}>
             <StyledSubmitText>Filtrar</StyledSubmitText>
           </StyledSubmit>
         </StyledContent>

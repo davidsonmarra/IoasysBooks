@@ -7,28 +7,33 @@ import TitleSvg from '../../assets/title-dark.svg';
 import LogoutSvg from '../../assets/logout.svg';
 import { RFValue } from 'react-native-responsive-fontsize';
 import BookDTO from '../../@types/BookDTO';
-import { CardBook, FilterModal, ListFooter, SearchInput } from '../../components';
-import { FETCH_BOOKS, RESET_BOOKS, SET_SEARCH } from '../../store/slices/booksSlice';
+import { CardBook, FilterModal, SearchInput, ShimmerCardBook } from '../../components';
+import { FETCH_BOOKS, RESET_BOOKS } from '../../store/slices/booksSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { IRootState } from '../../store/store';
 import { LOGOUT } from '../../store/slices/profileSlice';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import AuthRootStackParamList from '../../@types/AuthRootStackParamList';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { schema } from './schema';
 
-export interface IFormSignIn {
-  email: string;
-  password: string;
+export interface IFormSearch {
+  search: string;
 }
 
 export function Home() {
   const [filterModalVisible, setFilterModalVisible] = useState(false);
-  const [searchInput, setSearchInput] = useState('');
   const [offset, setOffset] = useState(1);
-  const { navigate } = useNavigation<NavigationProp<AuthRootStackParamList>>();
-  const { search, isEnd, booksData, loadingFetchBooks, category } = useSelector(
+  const { navigate } = useNavigation<NavigationProp<AuthRootStackParamList, 'Home'>>();
+  const dispatch = useDispatch();
+  const { isEnd, booksData, loadingFetchBooks, category } = useSelector(
     ({ books }: IRootState) => books
   );
-  const dispatch = useDispatch();
+  const { control, getValues, handleSubmit } = useForm<IFormSearch>({
+    resolver: yupResolver(schema),
+    mode: 'onSubmit'
+  });
 
   const handleFilterModal = () => setFilterModalVisible(prev => !prev);
 
@@ -37,24 +42,28 @@ export function Home() {
     dispatch(LOGOUT());
   };
 
-  const handleSearch = () => {
+  const onSubmit = (form: IFormSearch) => {
     Keyboard.dismiss();
     dispatch(RESET_BOOKS());
-    dispatch(SET_SEARCH(searchInput));
     setOffset(1);
-    dispatch(FETCH_BOOKS({ offset: 1, category, search: searchInput }));
+    dispatch(FETCH_BOOKS({ offset: 1, category, search: form.search }));
   };
 
   const onEndReached = () => {
     if (!isEnd) {
-      dispatch(FETCH_BOOKS({ offset: offset + 1, category, search }));
+      dispatch(FETCH_BOOKS({ offset: offset + 1, category, search: getValues('search') || '' }));
       setOffset(offset + 1);
     }
   };
 
-  const renderListFooterComponent = () => {
-    return <ListFooter isLoading={loadingFetchBooks} />;
-  };
+  const renderListFooterComponent = () =>
+    loadingFetchBooks ? (
+      <>
+        <ShimmerCardBook />
+        <ShimmerCardBook />
+        <ShimmerCardBook />
+      </>
+    ) : null;
 
   function handleGoToBookDetails(book: BookDTO) {
     navigate('BookDetailsScreen', { book });
@@ -65,7 +74,7 @@ export function Home() {
   );
 
   useEffect(() => {
-    dispatch(FETCH_BOOKS({ offset, category, search }));
+    dispatch(FETCH_BOOKS({ offset, category, search: getValues('search') || '' }));
   }, []);
 
   return (
@@ -81,11 +90,12 @@ export function Home() {
       </StyledHeader>
       <StyledSearch>
         <SearchInput
-          name='book'
+          control={control}
+          name='search'
           placeholder='Procure um livro'
-          value={searchInput}
-          onChangeText={setSearchInput}
-          onSubmit={handleSearch}
+          autoCorrect={false}
+          autoCapitalize='none'
+          onSubmit={handleSubmit(onSubmit)}
         />
         <StyledFilterButton onPress={handleFilterModal}>
           <StyledFilter />
@@ -106,6 +116,7 @@ export function Home() {
         visible={filterModalVisible}
         handleModal={handleFilterModal}
         setOffset={setOffset}
+        getSearch={() => getValues('search')}
       />
     </StyledContainer>
   );

@@ -7,6 +7,7 @@ function* fetchBooks({ payload: { offset, category, search } }: ReturnType<typeo
   const searchQuery = `/books?page=${offset}&amount=15&category=${category.key}&title=${search}`;
   try {
     const { data } = yield call(api.get, searchQuery);
+    console.log('data?.data', data?.data, searchQuery);
     yield put(FETCH_BOOKS_SUCCESS(data?.data));
   } catch (error) {
     if (error instanceof AxiosError || error instanceof Error) yield put(FETCH_BOOKS_ERROR(error));

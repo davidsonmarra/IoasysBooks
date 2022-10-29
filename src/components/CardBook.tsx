@@ -5,7 +5,6 @@ import BookDTO from '../@types/BookDTO';
 
 interface Props {
   data: BookDTO;
-  /* eslint no-unused-vars: [0] */
   handleGoToBookDetails: (book: BookDTO) => void;
 }
 
@@ -22,7 +21,6 @@ export function CardBookComponent({ data, handleGoToBookDetails }: Props) {
           <StyledHeader>
             <StyledTitle numberOfLines={1}>{data.title}</StyledTitle>
             {data.authors?.map((author, index) => (
-              /* eslint no-unsafe-optional-chaining: [0] */
               <StyledAuthor key={author} isLast={index !== data.authors?.length - 1}>
                 {author}
                 {index !== data.authors?.length - 1 && ','}

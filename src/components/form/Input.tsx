@@ -75,31 +75,29 @@ export function Input({
   };
 
   return (
-    <>
-      <Controller
-        control={control}
-        rules={{
-          required: true
-        }}
-        name={name}
-        render={({ field: { onChange, value } }) => (
-          <AnimatedContainer style={[animationStyleInputError]} onPress={onFocus} error={error}>
-            <StyledFormInput
-              onFocus={onFocus}
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-              ref={inputRef}
-              {...rest}
-            />
-            {name === 'password' && <Button disabled={isObjectEmpty(errors)} onPress={onSubmit} />}
-            <AnimatedPlaceholder style={[animationStylePlaceholder]}>
-              {placeholder}
-            </AnimatedPlaceholder>
-          </AnimatedContainer>
-        )}
-      />
-    </>
+    <Controller
+      control={control}
+      rules={{
+        required: true
+      }}
+      name={name}
+      render={({ field: { onChange, value } }) => (
+        <AnimatedContainer style={[animationStyleInputError]} onPress={onFocus} error={error}>
+          <StyledFormInput
+            onFocus={onFocus}
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+            ref={inputRef}
+            {...rest}
+          />
+          {name === 'password' && <Button disabled={isObjectEmpty(errors)} onPress={onSubmit} />}
+          <AnimatedPlaceholder style={[animationStylePlaceholder]}>
+            {placeholder}
+          </AnimatedPlaceholder>
+        </AnimatedContainer>
+      )}
+    />
   );
 }
 
@@ -127,7 +125,7 @@ const StyledFormInput = styled.TextInput`
 
 const StyledPlaceholder = styled.Text`
   position: absolute;
-  font-size: 16px;
+  font-size: ${RFValue(16)}px;
   font-family: ${({ theme }) => theme.fonts.regular};
   color: ${({ theme }) => theme.colors.shape};
   opacity: 0.5;

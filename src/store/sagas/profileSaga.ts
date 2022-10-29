@@ -5,6 +5,7 @@ import constants from '../../constants';
 import api from '../../services/api';
 import {
   LOGIN,
+  LOGIN_ON_START,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
   SET_AUTHORIZATIONS,
@@ -58,9 +59,38 @@ async function clearUserData() {
   await AsyncStorage.removeItem(constants.asyncStorageUserRefresh);
 }
 
+export function* loginOnStart() {
+  const token: string = yield call(AsyncStorage.getItem, constants.asyncStorageUserRefresh);
+  if (token) {
+    try {
+      const { headers } = yield call(
+        api.post,
+        '/auth/refresh-token',
+        {
+          refreshToken: token
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
+      );
+      const id: string = yield call(AsyncStorage.getItem, constants.asyncStorageUserId);
+      yield put(
+        SET_AUTHORIZATIONS({ token: headers.authorization, id, refresh: headers['refresh-token'] })
+      );
+      yield put(LOGIN_SUCCESS(headers.authorization));
+    } catch (error) {
+      console.log(error);
+      if (error instanceof AxiosError || error instanceof Error) yield put(LOGIN_FAILURE(error));
+    }
+  }
+}
+
 export default function* watcher() {
   yield all([
     takeLatest(LOGIN, login),
+    takeLatest(LOGIN_ON_START, loginOnStart),
     takeLatest(SET_AUTHORIZATIONS, setAuthorizations),
     takeLatest(LOGOUT, clearUserData)
   ]);

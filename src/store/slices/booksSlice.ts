@@ -9,16 +9,14 @@ interface Props {
   error: Error | AxiosError;
   booksData: BookDTO[];
   category: CategoryProps;
-  search: string;
 }
 
 const initialState: Props = {
-  isEnd: false,
+  isEnd: true,
   loadingFetchBooks: false,
   error: {} as Error | AxiosError,
   booksData: [],
-  category: { key: '', title: '' },
-  search: ''
+  category: { key: '', title: '' }
 };
 
 export interface IFetchBooks {
@@ -34,6 +32,7 @@ const counterSlice = createSlice({
     FETCH_BOOKS: (state, { payload }: PayloadAction<IFetchBooks>) => ({
       ...state,
       loadingFetchBooks: true,
+      isEnd: false,
       category: payload.category,
       error: {} as Error | AxiosError
     }),
@@ -49,16 +48,6 @@ const counterSlice = createSlice({
       loadingFetchBooks: false,
       error: payload
     }),
-    SET_CATEGORY: (state, { payload }: PayloadAction<CategoryProps>) => ({
-      ...state,
-      category: payload,
-      booksData: []
-    }),
-    SET_SEARCH: (state, { payload }: PayloadAction<string>) => ({
-      ...state,
-      search: payload,
-      booksData: []
-    }),
     RESET_BOOKS: state => ({
       ...state,
       isEnd: false,
@@ -73,12 +62,5 @@ const counterSlice = createSlice({
 
 const { actions, reducer } = counterSlice;
 
-export const {
-  FETCH_BOOKS,
-  FETCH_BOOKS_SUCCESS,
-  FETCH_BOOKS_ERROR,
-  SET_CATEGORY,
-  SET_SEARCH,
-  RESET_BOOKS
-} = actions;
+export const { FETCH_BOOKS, FETCH_BOOKS_SUCCESS, FETCH_BOOKS_ERROR, RESET_BOOKS } = actions;
 export default reducer;

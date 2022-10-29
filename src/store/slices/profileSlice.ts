@@ -38,6 +38,9 @@ const profileSlice = createSlice({
       error: {} as Error | AxiosError,
       isLoading: true
     }),
+    LOGIN_ON_START: state => ({
+      ...state
+    }),
     LOGIN_SUCCESS: (state, { payload }: PayloadAction<string>) => ({
       ...state,
       token: payload,
@@ -65,5 +68,6 @@ const profileSlice = createSlice({
 
 const { actions, reducer } = profileSlice;
 
-export const { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE, SET_AUTHORIZATIONS, LOGOUT } = actions;
+export const { LOGIN, LOGIN_ON_START, LOGIN_SUCCESS, LOGIN_FAILURE, SET_AUTHORIZATIONS, LOGOUT } =
+  actions;
 export default reducer;
