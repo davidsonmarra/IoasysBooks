@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios, { AxiosRequestHeaders } from 'axios';
 import callbackRequest from './interceptors/callbacks/request/request';
 
-const createApiService = (baseURL: string, timeout: number, headers: any) => {
+const createApiService = (baseURL: string, timeout: number, headers: AxiosRequestHeaders) => {
   const api = axios.create({
     baseURL,
     timeout: timeout || 8000,

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { FlatListProps, FlatList, Keyboard } from 'react-native';
-import styled from 'styled-components/native';
+import { FlatListProps, FlatList, Keyboard, RefreshControl } from 'react-native';
+import styled, { useTheme } from 'styled-components/native';
 import LogoSvg from '../../assets/logo-dark.svg';
 import FilterSvg from '../../assets/filter.svg';
 import TitleSvg from '../../assets/title-dark.svg';
@@ -23,6 +23,7 @@ export interface IFormSearch {
 }
 
 export function Home() {
+  const { colors } = useTheme();
   const [filterModalVisible, setFilterModalVisible] = useState(false);
   const [offset, setOffset] = useState(1);
   const { navigate } = useNavigation<NavigationProp<AuthRootStackParamList, 'Home'>>();
@@ -30,7 +31,7 @@ export function Home() {
   const { isEnd, booksData, loadingFetchBooks, category } = useSelector(
     ({ books }: IRootState) => books
   );
-  const { control, getValues, handleSubmit } = useForm<IFormSearch>({
+  const { control, getValues, handleSubmit, reset } = useForm<IFormSearch>({
     resolver: yupResolver(schema),
     mode: 'onSubmit'
   });
@@ -40,6 +41,13 @@ export function Home() {
   const handleLogout = () => {
     dispatch(RESET_BOOKS());
     dispatch(LOGOUT());
+  };
+
+  const onReset = () => {
+    setOffset(1);
+    reset();
+    dispatch(RESET_BOOKS());
+    dispatch(FETCH_BOOKS({ offset: 1, category, search: '' }));
   };
 
   const onSubmit = (form: IFormSearch) => {
@@ -75,6 +83,15 @@ export function Home() {
     <CardBook data={item} handleGoToBookDetails={book => handleGoToBookDetails(book)} />
   );
 
+  const refreshControl = (
+    <RefreshControl
+      colors={[colors.button]}
+      tintColor={colors.button}
+      refreshing={loadingFetchBooks}
+      onRefresh={() => onSubmit({ search: getValues('search') || '' })}
+    />
+  );
+
   useEffect(() => {
     dispatch(FETCH_BOOKS({ offset, category, search: getValues('search') || '' }));
   }, []);
@@ -97,7 +114,9 @@ export function Home() {
           placeholder='Procure um livro'
           autoCorrect={false}
           autoCapitalize='none'
+          searchValue={getValues('search')}
           onSubmit={handleSubmit(onSubmit)}
+          reset={onReset}
         />
         <StyledFilterButton onPress={handleFilterModal}>
           <StyledFilter />
@@ -105,6 +124,7 @@ export function Home() {
       </StyledSearch>
       <StyledList
         data={booksData}
+        refreshControl={refreshControl}
         keyExtractor={item => `${item.id}`}
         refreshing={loadingFetchBooks}
         showsVerticalScrollIndicator={false}

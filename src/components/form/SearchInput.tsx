@@ -3,16 +3,19 @@ import { TextInput, TextInputProps } from 'react-native';
 import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import SearchSvg from '../../assets/search.svg';
+import CleanSvg from '../../assets/close.svg';
 import { Control, Controller } from 'react-hook-form';
 import { IFormSearch } from '../../presentational/Home';
 
 interface Props extends TextInputProps {
   control: Control<IFormSearch>;
   name: keyof IFormSearch;
-  onSubmit?: () => void;
+  onSubmit: () => void;
+  searchValue: string;
+  reset: () => void;
 }
 
-export function SearchInput({ onSubmit, control, name, ...rest }: Props) {
+export function SearchInput({ onSubmit, control, name, reset, searchValue, ...rest }: Props) {
   const inputRef = useRef<TextInput>(null);
 
   const onFocus = () => {
@@ -26,14 +29,18 @@ export function SearchInput({ onSubmit, control, name, ...rest }: Props) {
         required: true
       }}
       name={name}
-      render={({ field: { onChange, value } }) => (
-        <StyledContainer onPress={onFocus}>
-          <StyledFormInput onChangeText={onChange} value={value} ref={inputRef} {...rest} />
-          <StyledSearchButton onPress={onSubmit}>
-            <StyledSearchIcon />
-          </StyledSearchButton>
-        </StyledContainer>
-      )}
+      render={({ field: { onChange, value } }) => {
+        const showCleanIcon = value !== searchValue || !value;
+
+        return (
+          <StyledContainer onPress={onFocus}>
+            <StyledFormInput onChangeText={onChange} value={value} ref={inputRef} {...rest} />
+            <StyledSearchButton onPress={() => (showCleanIcon ? onSubmit() : reset())}>
+              {showCleanIcon ? <StyledSearchIcon /> : <StyledSearchClear />}
+            </StyledSearchButton>
+          </StyledContainer>
+        );
+      }}
     />
   );
 }
@@ -58,6 +65,11 @@ export const StyledFormInput = styled.TextInput`
 `;
 
 export const StyledSearchIcon = styled(SearchSvg).attrs({
+  width: RFValue(24),
+  height: RFValue(24)
+})``;
+
+export const StyledSearchClear = styled(CleanSvg).attrs({
   width: RFValue(24),
   height: RFValue(24)
 })``;
