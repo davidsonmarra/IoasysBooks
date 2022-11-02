@@ -44,8 +44,8 @@ export function Home() {
 
   const onSubmit = (form: IFormSearch) => {
     Keyboard.dismiss();
-    dispatch(RESET_BOOKS());
     setOffset(1);
+    dispatch(RESET_BOOKS());
     dispatch(FETCH_BOOKS({ offset: 1, category, search: form.search }));
   };
 
@@ -63,7 +63,9 @@ export function Home() {
         <ShimmerCardBook />
         <ShimmerCardBook />
       </>
-    ) : null;
+    ) : (
+      <StyledFooter />
+    );
 
   function handleGoToBookDetails(book: BookDTO) {
     navigate('BookDetailsScreen', { book });
@@ -109,6 +111,7 @@ export function Home() {
         renderItem={renderItem}
         onEndReached={onEndReached}
         onEndReachedThreshold={0.5}
+        scrollEventThrottle={16}
         ListFooterComponent={renderListFooterComponent}
         keyboardDismissMode='on-drag'
       />
@@ -176,3 +179,7 @@ export const StyledList = styled(
     paddingBottom: RFValue(24)
   }
 })``;
+
+export const StyledFooter = styled.View`
+  height: ${RFValue(100)}px;
+`;

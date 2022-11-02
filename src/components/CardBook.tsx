@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import BookDTO from '../@types/BookDTO';
+import Animated, { FadeIn } from 'react-native-reanimated';
 
 interface Props {
   data: BookDTO;
@@ -14,7 +15,7 @@ interface PropsStyle {
 
 export function CardBookComponent({ data, handleGoToBookDetails }: Props) {
   return (
-    <StyledWrapper>
+    <AnimatedWrapper entering={FadeIn}>
       <StyledContainer onPress={() => handleGoToBookDetails(data)}>
         <StyledImageBook source={{ uri: data.imageUrl }} />
         <StyledInfo>
@@ -34,7 +35,7 @@ export function CardBookComponent({ data, handleGoToBookDetails }: Props) {
           </StyledFooter>
         </StyledInfo>
       </StyledContainer>
-    </StyledWrapper>
+    </AnimatedWrapper>
   );
 }
 
@@ -42,6 +43,8 @@ const StyledWrapper = styled.View`
   width: 100%;
   padding: 0 ${RFValue(16)}px;
 `;
+
+const AnimatedWrapper = Animated.createAnimatedComponent(StyledWrapper);
 
 const StyledContainer = styled.TouchableOpacity`
   width: 100%;

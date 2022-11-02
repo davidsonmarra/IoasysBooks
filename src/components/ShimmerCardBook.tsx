@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
+import Animated, { FadeIn } from 'react-native-reanimated';
 
 export function ShimmerCardBook() {
   return (
-    <StyledWrapper>
+    <AnimatedWrapper entering={FadeIn}>
       <StyledContainer>
         <StyledImageBook />
         <StyledInfo>
@@ -19,7 +20,7 @@ export function ShimmerCardBook() {
           </StyledFooter>
         </StyledInfo>
       </StyledContainer>
-    </StyledWrapper>
+    </AnimatedWrapper>
   );
 }
 
@@ -27,6 +28,8 @@ const StyledWrapper = styled.View`
   width: 100%;
   padding: 0 ${RFValue(16)}px;
 `;
+
+const AnimatedWrapper = Animated.createAnimatedComponent(StyledWrapper);
 
 const StyledContainer = styled.View`
   width: 100%;

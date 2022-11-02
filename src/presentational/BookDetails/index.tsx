@@ -82,7 +82,7 @@ export function BookDetails({ book }: Props) {
 
 export const StyledContainer = styled.View`
   flex: 1;
-  padding: 0 ${RFValue(16)}px;
+  padding: 0 ${RFValue(16)}px ${RFValue(16)}px;
   background-color: ${({ theme }) => theme.colors.background};
 `;
 

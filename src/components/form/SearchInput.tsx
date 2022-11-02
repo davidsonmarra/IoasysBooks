@@ -43,7 +43,7 @@ export const StyledContainer = styled.TouchableOpacity`
   height: ${RFValue(60)}px;
   flex-direction: row;
   justify-content: flex-end;
-  padding: ${RFValue(14)}px ${RFValue(16)}px ${RFValue(14)}px ${RFValue(11)}px;
+  padding: 0 ${RFValue(16)}px 0 ${RFValue(11)}px;
   border: ${RFValue(1)}px solid ${({ theme }) => theme.colors.input_background};
   border-radius: ${RFValue(2)}px;
 `;
