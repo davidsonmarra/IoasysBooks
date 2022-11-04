@@ -64,3 +64,6 @@ buck-out/
 /ios/Pods/
 /ios/build/
 /vendor/bundle/
+
+# jest
+coverage

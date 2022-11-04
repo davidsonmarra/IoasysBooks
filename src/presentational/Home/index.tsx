@@ -103,7 +103,7 @@ export function Home() {
           <StyledLogo />
           <TitleSvg />
         </StyledTitle>
-        <StyledLogoutButton onPress={handleLogout}>
+        <StyledLogoutButton accessibilityLabel='logout' onPress={handleLogout}>
           <LogoutSvg />
         </StyledLogoutButton>
       </StyledHeader>
