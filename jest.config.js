@@ -9,24 +9,18 @@ module.exports = {
     '<rootDir>/__tests__/jest.setup.ts',
     '<rootDir>/__tests__/test-utils.test.tsx'
   ],
-  moduleDirectories: [
-    'node_modules',
-    // add the directory with the test-utils.js file, for example:
-    'utils', // a utility folder
-    'src' // the root directory
-  ],
+  moduleDirectories: ['node_modules', 'utils', 'src'],
   transformIgnorePatterns: [
     'node_modules/(?!(jest-)?@?react-native|@react-native-community|@react-navigation)'
   ],
-  // ... other options ...
-  // coverageThreshold: {
-  //   global: {
-  //     statements: 80,
-  //     branches: 80,
-  //     functions: 80,
-  //     lines: 80,
-  //   },
-  // },
+  coverageThreshold: {
+    global: {
+      statements: 80,
+      branches: 80,
+      functions: 80,
+      lines: 80
+    }
+  },
   moduleNameMapper: {
     '\\.svg': '<rootDir>/__mocks__/svgMock.js'
   },

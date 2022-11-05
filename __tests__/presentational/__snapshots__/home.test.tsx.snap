@@ -161,6 +161,7 @@ exports[`Home should match a snapshot 1`] = `
             "opacity": 1,
           }
         }
+        testID="search-submit-button"
       >
         <SvgMock
           height={47}
@@ -174,6 +175,7 @@ exports[`Home should match a snapshot 1`] = `
       </View>
     </View>
     <View
+      accessibilityLabel="filtros"
       accessible={true}
       collapsable={false}
       focusable={true}
@@ -246,6 +248,7 @@ exports[`Home should match a snapshot 1`] = `
         Object {},
       ]
     }
+    testID="books-flatlist"
     viewabilityConfigCallbackPairs={Array []}
   >
     <RCTRefreshControl />
@@ -281,6 +284,7 @@ exports[`Home should match a snapshot 1`] = `
         },
       ]
     }
+    testID="filter-modal"
     transparent={true}
     visible={false}
   />

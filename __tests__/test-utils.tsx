@@ -32,7 +32,6 @@ export const renderWithCustomProviders = (
   component: React.ReactElement,
   preloadedState: IRootState
 ) => {
-  console.log(preloadedState);
   const reduxStore = configureStore({
     reducer: reducers,
     middleware: [sagaMiddleware],

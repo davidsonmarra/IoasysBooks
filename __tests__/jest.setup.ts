@@ -10,6 +10,11 @@ jest.mock('@react-native-async-storage/async-storage', () => mockAsyncStorage);
 
 jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
 
+// jest.mock('react-redux', () => ({
+//   ...jest.requireActual('react-redux'),
+//   useDispatch: () => jest.fn()
+// }));
+
 // jest.mock('@react-navigation/native', () => {
 //   const originalModule = jest.requireActual('@react-navigation/native');
 

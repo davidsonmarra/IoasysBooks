@@ -35,7 +35,10 @@ export function SearchInput({ onSubmit, control, name, reset, searchValue, ...re
         return (
           <StyledContainer onPress={onFocus}>
             <StyledFormInput onChangeText={onChange} value={value} ref={inputRef} {...rest} />
-            <StyledSearchButton onPress={() => (showCleanIcon ? onSubmit() : reset())}>
+            <StyledSearchButton
+              testID='search-submit-button'
+              onPress={() => (showCleanIcon ? onSubmit() : reset())}
+            >
               {showCleanIcon ? <StyledSearchIcon /> : <StyledSearchClear />}
             </StyledSearchButton>
           </StyledContainer>

@@ -15,10 +15,10 @@ interface PropsStyle {
 interface Props extends ModalProps {
   handleModal: () => void;
   setOffset: React.Dispatch<React.SetStateAction<number>>;
-  getSearch: () => string;
+  search: string;
 }
 
-export function FilterModal({ visible, handleModal, setOffset, getSearch }: Props) {
+export function FilterModal({ visible, handleModal, setOffset, search = '' }: Props) {
   const [category, setCategory] = useState({} as CategoryProps);
   const dispatch = useDispatch();
 
@@ -32,7 +32,8 @@ export function FilterModal({ visible, handleModal, setOffset, getSearch }: Prop
 
   function submit() {
     dispatch(RESET_BOOKS());
-    dispatch(FETCH_BOOKS({ offset: 1, category, search: getSearch() || '' }));
+    console.log('category', category);
+    dispatch(FETCH_BOOKS({ offset: 1, category, search: search }));
     setOffset(1);
     handleModal();
   }
@@ -43,6 +44,7 @@ export function FilterModal({ visible, handleModal, setOffset, getSearch }: Prop
       transparent
       visible={visible}
       onRequestClose={handleModal}
+      testID='filter-modal'
     >
       <StyledContentContainer>
         <StyledContent>

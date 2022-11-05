@@ -1,4 +1,13 @@
-export const mockBook = {
+import BookDTO from '../src/@types/BookDTO';
+
+interface IMockFetchDataBooks {
+  data: BookDTO[];
+  page: number;
+  totalPages: number;
+  totalItems: number;
+}
+
+export const mockBook: BookDTO = {
   id: '1',
   title: 'Test Title',
   imageUrl: 'https://www.test.com',
@@ -47,4 +56,37 @@ export const mockPreloadedStateFilled = {
     category: { key: '', title: '' },
     search: ''
   }
+};
+
+export const mockFetchDataBooks: IMockFetchDataBooks = {
+  data: [
+    {
+      ...mockBook,
+      id: '2',
+      title: 'Harry Potter 1'
+    },
+    {
+      ...mockBook,
+      id: '3',
+      title: 'Harry Potter 2'
+    },
+    {
+      ...mockBook,
+      id: '4',
+      title: 'Harry Potter 3'
+    },
+    {
+      ...mockBook,
+      id: '5',
+      title: 'Harry Potter 4'
+    },
+    {
+      ...mockBook,
+      id: '6',
+      title: 'Harry Potter 5'
+    }
+  ],
+  page: 1,
+  totalPages: 1,
+  totalItems: 2
 };

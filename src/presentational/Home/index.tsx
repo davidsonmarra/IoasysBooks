@@ -118,7 +118,7 @@ export function Home() {
           onSubmit={handleSubmit(onSubmit)}
           reset={onReset}
         />
-        <StyledFilterButton onPress={handleFilterModal}>
+        <StyledFilterButton accessibilityLabel='filtros' onPress={handleFilterModal}>
           <StyledFilter />
         </StyledFilterButton>
       </StyledSearch>
@@ -134,12 +134,13 @@ export function Home() {
         scrollEventThrottle={16}
         ListFooterComponent={renderListFooterComponent}
         keyboardDismissMode='on-drag'
+        testID='books-flatlist'
       />
       <FilterModal
         visible={filterModalVisible}
         handleModal={handleFilterModal}
         setOffset={setOffset}
-        getSearch={() => getValues('search')}
+        search={getValues('search')}
       />
     </StyledContainer>
   );

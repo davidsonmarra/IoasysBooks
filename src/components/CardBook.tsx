@@ -16,7 +16,7 @@ interface PropsStyle {
 export function CardBookComponent({ data, handleGoToBookDetails }: Props) {
   return (
     <AnimatedWrapper entering={FadeIn}>
-      <StyledContainer onPress={() => handleGoToBookDetails(data)}>
+      <StyledContainer testID='book-item-on-flatlist' onPress={() => handleGoToBookDetails(data)}>
         <StyledImageBook source={{ uri: data.imageUrl }} />
         <StyledInfo>
           <StyledHeader>
