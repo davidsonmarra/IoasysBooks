@@ -1,0 +1,293 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should match a snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#E5E5E5",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+      },
+    ]
+  }
+  testID="HomeScreen"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "paddingBottom": 0,
+          "paddingLeft": 31,
+          "paddingRight": 31,
+          "paddingTop": 82,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          },
+        ]
+      }
+    >
+      <SvgMock
+        style={
+          Array [
+            Object {
+              "marginRight": 33,
+            },
+          ]
+        }
+      />
+      <SvgMock />
+    </View>
+    <View
+      accessibilityLabel="logout"
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "borderColor": "#00000052",
+          "borderRadius": 31,
+          "borderStyle": "solid",
+          "borderWidth": 2,
+          "height": 63,
+          "justifyContent": "center",
+          "opacity": 1,
+          "width": 63,
+        }
+      }
+    >
+      <SvgMock />
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginTop": 63,
+          "paddingBottom": 63,
+          "paddingLeft": 31,
+          "paddingRight": 31,
+          "paddingTop": 0,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "borderColor": "#00000052",
+          "borderRadius": 4,
+          "borderStyle": "solid",
+          "borderWidth": 2,
+          "flexDirection": "row",
+          "height": 118,
+          "justifyContent": "flex-end",
+          "opacity": 1,
+          "paddingBottom": 0,
+          "paddingLeft": 22,
+          "paddingRight": 31,
+          "paddingTop": 0,
+          "width": "85%",
+        }
+      }
+    >
+      <TextInput
+        autoCapitalize="none"
+        autoCorrect={false}
+        onChangeText={[Function]}
+        placeholder="Procure um livro"
+        style={
+          Array [
+            Object {
+              "alignSelf": "flex-end",
+              "color": "#333333",
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "fontFamily": "Heebo-Regular",
+              "fontSize": 27,
+              "height": "100%",
+            },
+          ]
+        }
+      />
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignSelf": "center",
+            "opacity": 1,
+          }
+        }
+        testID="search-submit-button"
+      >
+        <SvgMock
+          height={47}
+          style={
+            Array [
+              Object {},
+            ]
+          }
+          width={47}
+        />
+      </View>
+    </View>
+    <View
+      accessibilityLabel="filtros"
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <SvgMock
+        height={47}
+        style={
+          Array [
+            Object {},
+          ]
+        }
+        width={47}
+      />
+    </View>
+  </View>
+  <RCTScrollView
+    ListFooterComponent={[Function]}
+    contentContainerStyle={
+      Object {
+        "alignItems": "center",
+        "paddingBottom": 47,
+      }
+    }
+    data={Array []}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    keyboardDismissMode="on-drag"
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.5}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <RefreshControlMock
+        colors={
+          Array [
+            "#B22E6F",
+          ]
+        }
+        onRefresh={[Function]}
+        refreshing={false}
+        tintColor="#B22E6F"
+      />
+    }
+    refreshing={false}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={16}
+    showsVerticalScrollIndicator={false}
+    stickyHeaderIndices={Array []}
+    style={
+      Array [
+        Object {},
+      ]
+    }
+    testID="books-flatlist"
+    viewabilityConfigCallbackPairs={Array []}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "height": 196,
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+  <Modal
+    animationType="fade"
+    hardwareAccelerated={false}
+    onRequestClose={[Function]}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#00000052",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+    testID="filter-modal"
+    transparent={true}
+    visible={false}
+  />
+</View>
+`;

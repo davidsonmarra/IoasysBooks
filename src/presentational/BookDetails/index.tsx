@@ -24,7 +24,7 @@ export function BookDetails({ book }: Props) {
   return (
     <StyledContainer>
       <StyledHeader>
-        <StyledBackButton onPress={handleGoBack}>
+        <StyledBackButton accessibilityLabel='go back' onPress={handleGoBack}>
           <StyledBack />
         </StyledBackButton>
       </StyledHeader>

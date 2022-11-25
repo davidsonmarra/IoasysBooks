@@ -15,10 +15,10 @@ interface PropsStyle {
 interface Props extends ModalProps {
   handleModal: () => void;
   setOffset: React.Dispatch<React.SetStateAction<number>>;
-  getSearch: () => string;
+  search: string;
 }
 
-export function FilterModal({ visible, handleModal, setOffset, getSearch }: Props) {
+export function FilterModal({ visible, handleModal, setOffset, search }: Props) {
   const [category, setCategory] = useState({} as CategoryProps);
   const dispatch = useDispatch();
 
@@ -32,7 +32,7 @@ export function FilterModal({ visible, handleModal, setOffset, getSearch }: Prop
 
   function submit() {
     dispatch(RESET_BOOKS());
-    dispatch(FETCH_BOOKS({ offset: 1, category, search: getSearch() || '' }));
+    dispatch(FETCH_BOOKS({ offset: 1, category, search: search }));
     setOffset(1);
     handleModal();
   }
@@ -43,6 +43,7 @@ export function FilterModal({ visible, handleModal, setOffset, getSearch }: Prop
       transparent
       visible={visible}
       onRequestClose={handleModal}
+      testID='filter-modal'
     >
       <StyledContentContainer>
         <StyledContent>
@@ -59,6 +60,7 @@ export function FilterModal({ visible, handleModal, setOffset, getSearch }: Prop
                   isSelected={item.key === category.key}
                   onPress={() => handleSelectCategory(item)}
                   key={item.key}
+                  testID={`category-${item.key}-button`}
                 >
                   <StyledCategoryName isSelected={item.key === category.key}>
                     {item.title}
@@ -67,7 +69,7 @@ export function FilterModal({ visible, handleModal, setOffset, getSearch }: Prop
               ))}
             </StyledCategories>
           </StyledCategory>
-          <StyledSubmit onPress={submit}>
+          <StyledSubmit accessibilityLabel='submit filter' onPress={submit}>
             <StyledSubmitText>Filtrar</StyledSubmitText>
           </StyledSubmit>
         </StyledContent>
@@ -118,6 +120,7 @@ const StyledClose = styled(CloseSvg).attrs({
 const StyledCategory = styled.View``;
 
 const StyledCategoryTitle = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.medium};
   font-size: ${RFValue(12)}px;
   margin-bottom: ${RFValue(16)}px;
   color: ${({ theme }) => theme.colors.dark};
