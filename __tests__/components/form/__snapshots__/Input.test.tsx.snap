@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form Input should match a snapshot 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  forwardedRef={[Function]}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#00000052",
+      "borderColor": "rgba(0, 0, 0, 0)",
+      "borderRadius": 8,
+      "borderWidth": 2,
+      "flexDirection": "row",
+      "height": 118,
+      "justifyContent": "flex-end",
+      "marginBottom": 31,
+      "opacity": 1,
+      "width": "100%",
+    }
+  }
+>
+  <TextInput
+    onBlur={[Function]}
+    onChangeText={[Function]}
+    onFocus={[Function]}
+    style={
+      Array [
+        Object {
+          "alignSelf": "flex-end",
+          "color": "#FFFFFF",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "fontFamily": "Heebo-Regular",
+          "fontSize": 31,
+          "paddingBottom": 16,
+          "paddingLeft": 31,
+          "paddingRight": 31,
+          "paddingTop": 0,
+        },
+      ]
+    }
+    testID="input-email"
+  />
+  <Text
+    animatedStyle={
+      Object {
+        "value": Object {
+          "bottom": 38,
+          "fontSize": 12,
+          "left": 10,
+        },
+      }
+    }
+    collapsable={false}
+    style={
+      Array [
+        Object {
+          "color": "#FFFFFF",
+          "fontFamily": "Heebo-Regular",
+          "fontSize": 31,
+          "opacity": 0.5,
+          "position": "absolute",
+        },
+        Object {
+          "bottom": 38,
+          "fontSize": 12,
+          "left": 10,
+        },
+      ]
+    }
+  />
+</View>
+`;

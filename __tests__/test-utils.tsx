@@ -2,10 +2,10 @@ import { render } from '@testing-library/react-native';
 import { ThemeProvider } from 'styled-components/native';
 import renderer from 'react-test-renderer';
 import theme from '../src/global/styles/theme';
-import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 import store, { IRootState, reducers, sagaMiddleware } from './test-redux-store';
 import { configureStore, EnhancedStore } from '@reduxjs/toolkit';
+import sagas from '../src/store/sagas';
 
 interface IAllThemeProviders {
   children: React.ReactElement;
@@ -13,11 +13,9 @@ interface IAllThemeProviders {
 }
 
 const AllTheProviders = ({ children }: IAllThemeProviders) => (
-  <NavigationContainer>
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    </Provider>
-  </NavigationContainer>
+  <Provider store={store}>
+    <ThemeProvider theme={theme}>{children}</ThemeProvider>
+  </Provider>
 );
 
 const customRender = (ui: React.ReactElement, options = {}) =>
@@ -38,13 +36,13 @@ export const renderWithCustomProviders = (
     preloadedState: preloadedState
   });
 
+  sagaMiddleware.run(sagas);
+
   return {
     render: render(
-      <NavigationContainer>
-        <Provider store={reduxStore}>
-          <ThemeProvider theme={theme}>{component}</ThemeProvider>;
-        </Provider>
-      </NavigationContainer>
+      <Provider store={reduxStore}>
+        <ThemeProvider theme={theme}>{component}</ThemeProvider>;
+      </Provider>
     ),
     store: reduxStore
   };

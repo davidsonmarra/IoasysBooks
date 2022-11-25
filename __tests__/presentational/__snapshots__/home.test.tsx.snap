@@ -12,6 +12,7 @@ exports[`Home should match a snapshot 1`] = `
       },
     ]
   }
+  testID="HomeScreen"
 >
   <View
     style={

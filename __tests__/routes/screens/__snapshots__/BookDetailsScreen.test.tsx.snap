@@ -1,0 +1,522 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Book Details Screen should match a snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#E5E5E5",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "paddingBottom": 31,
+        "paddingLeft": 31,
+        "paddingRight": 31,
+        "paddingTop": 0,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingTop": 88,
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityLabel="go back"
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "borderColor": "#00000052",
+          "borderRadius": 31,
+          "borderStyle": "solid",
+          "borderWidth": 2,
+          "height": 63,
+          "justifyContent": "center",
+          "opacity": 1,
+          "width": 63,
+        }
+      }
+    >
+      <SvgMock
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      />
+    </View>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      Object {
+        "paddingBottom": 31,
+      }
+    }
+    showsVerticalScrollIndicator={false}
+    style={
+      Array [
+        Object {
+          "paddingBottom": 0,
+          "paddingLeft": 47,
+          "paddingRight": 47,
+          "paddingTop": 0,
+        },
+      ]
+    }
+  >
+    <View>
+      <Image
+        source={
+          Object {
+            "uri": "https://www.test.com",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "alignSelf": "center",
+              "height": 687,
+              "marginTop": 39,
+              "shadowColor": "rgba(84, 16, 95, 0.13)",
+              "shadowOffset": Object {
+                "height": 6,
+                "width": 0,
+              },
+              "shadowOpacity": 1,
+              "shadowRadius": 24,
+              "width": 471,
+            },
+          ]
+        }
+      />
+      <Text
+        numberOfLines={2}
+        style={
+          Array [
+            Object {
+              "alignSelf": "center",
+              "color": "#333333",
+              "fontFamily": "Heebo-Medium",
+              "fontSize": 55,
+              "marginTop": 47,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Test Title
+      </Text>
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "justifyContent": "center",
+              "marginBottom": 31,
+            },
+          ]
+        }
+      >
+        <Text
+          isLast={true}
+          style={
+            Array [
+              Object {
+                "color": "#B22E6F",
+                "fontFamily": "Heebo-Regular",
+                "fontSize": 24,
+                "marginRight": 8,
+              },
+            ]
+          }
+        >
+          Test Author 1
+          ,
+        </Text>
+        <Text
+          isLast={false}
+          style={
+            Array [
+              Object {
+                "color": "#B22E6F",
+                "fontFamily": "Heebo-Regular",
+                "fontSize": 24,
+                "marginRight": 0,
+              },
+            ]
+          }
+        >
+          Test Author 2
+        </Text>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#333333",
+              "fontFamily": "Heebo-Medium",
+              "fontSize": 24,
+              "marginBottom": 31,
+              "marginTop": 31,
+              "textTransform": "uppercase",
+            },
+          ]
+        }
+      >
+        Informações
+      </Text>
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#333333",
+                "fontFamily": "Heebo-Medium",
+                "fontSize": 24,
+              },
+            ]
+          }
+        >
+          Páginas
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#999999",
+                "fontFamily": "Heebo-Regular",
+                "fontSize": 24,
+              },
+            ]
+          }
+        >
+          100
+           páginas
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#333333",
+                "fontFamily": "Heebo-Medium",
+                "fontSize": 24,
+              },
+            ]
+          }
+        >
+          Editora
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#999999",
+                "fontFamily": "Heebo-Regular",
+                "fontSize": 24,
+              },
+            ]
+          }
+        >
+          Test Publisher
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#333333",
+                "fontFamily": "Heebo-Medium",
+                "fontSize": 24,
+              },
+            ]
+          }
+        >
+          Publicação
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#999999",
+                "fontFamily": "Heebo-Regular",
+                "fontSize": 24,
+              },
+            ]
+          }
+        >
+          1980
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#333333",
+                "fontFamily": "Heebo-Medium",
+                "fontSize": 24,
+              },
+            ]
+          }
+        >
+          Idioma
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#999999",
+                "fontFamily": "Heebo-Regular",
+                "fontSize": 24,
+              },
+            ]
+          }
+        >
+          Test Language
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#333333",
+                "fontFamily": "Heebo-Medium",
+                "fontSize": 24,
+              },
+            ]
+          }
+        >
+          Título Original
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#999999",
+                "fontFamily": "Heebo-Regular",
+                "fontSize": 24,
+              },
+            ]
+          }
+        >
+          Test Title
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#333333",
+                "fontFamily": "Heebo-Medium",
+                "fontSize": 24,
+              },
+            ]
+          }
+        >
+          ISBN-10
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#999999",
+                "fontFamily": "Heebo-Regular",
+                "fontSize": 24,
+              },
+            ]
+          }
+        >
+          Test ISBN10
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#333333",
+                "fontFamily": "Heebo-Medium",
+                "fontSize": 24,
+              },
+            ]
+          }
+        >
+          ISBN-13
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#999999",
+                "fontFamily": "Heebo-Regular",
+                "fontSize": 24,
+              },
+            ]
+          }
+        >
+          Test ISBN13
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#333333",
+                "fontFamily": "Heebo-Medium",
+                "fontSize": 24,
+              },
+            ]
+          }
+        >
+          Categoria
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#999999",
+                "fontFamily": "Heebo-Regular",
+                "fontSize": 24,
+              },
+            ]
+          }
+        >
+          Test Category
+        </Text>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#333333",
+              "fontFamily": "Heebo-Medium",
+              "fontSize": 24,
+              "marginBottom": 31,
+              "marginTop": 31,
+              "textTransform": "uppercase",
+            },
+          ]
+        }
+      >
+        Resenha da Editora
+      </Text>
+      <SvgMock
+        style={
+          Array [
+            Object {
+              "marginBottom": 16,
+            },
+          ]
+        }
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#999999",
+              "fontFamily": "Heebo-Regular",
+              "fontSize": 24,
+            },
+          ]
+        }
+      >
+        Test Description
+      </Text>
+    </View>
+  </RCTScrollView>
+</View>
+`;

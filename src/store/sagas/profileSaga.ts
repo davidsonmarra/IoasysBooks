@@ -81,7 +81,7 @@ export function* loginOnStart() {
       );
       yield put(LOGIN_SUCCESS(headers.authorization));
     } catch (error) {
-      if (error instanceof AxiosError || error instanceof Error) console.log(error);
+      if (error instanceof AxiosError || error instanceof Error) yield put(LOGIN_FAILURE(error));
     }
   }
 }

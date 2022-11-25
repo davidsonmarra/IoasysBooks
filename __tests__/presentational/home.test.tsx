@@ -8,27 +8,7 @@ import {
   waitFor,
   cleanup
 } from '../test-utils';
-import { rest } from 'msw';
-import { setupServer } from 'msw/node';
-import { FETCH_BOOKS_SUCCESS, FETCH_BOOKS_ERROR } from '../../src/store/slices/booksSlice';
-
-const server = setupServer(
-  rest.get('https://books.ioasys.com.br/api/v1/books', (req, res, ctx) => {
-    const search: string = req.url.searchParams.get('title') || '';
-    return search.includes('error')
-      ? res(ctx.status(401), ctx.json(mockFetchDataBooks))
-      : res(
-          ctx.json({
-            errorMessage: `Error 401`
-          })
-        );
-  })
-);
-
-jest.mock('redux-saga/effects', () => ({
-  ...jest.requireActual('redux-saga/effects'),
-  put: jest.fn()
-}));
+import { server } from '../jest.setup';
 
 const mockedUsedNavigate = jest.fn();
 
@@ -75,30 +55,25 @@ describe('Home', () => {
     fireEvent.changeText(searchInput, 'harry potter');
 
     await waitFor(() => act(() => fireEvent.press(searchSubmitButton)));
-    act(() => store.dispatch(FETCH_BOOKS_SUCCESS(mockFetchDataBooks.data)));
-
     expect(store.getState().books.booksData).toEqual(mockFetchDataBooks.data);
 
-    await waitFor(() => {
-      act(() => fireEvent.press(searchSubmitButton));
-      act(() => store.dispatch(FETCH_BOOKS_SUCCESS([mockBook])));
-    });
-
-    expect(store.getState().books.booksData).toEqual([mockBook]);
+    expect(searchInput.props.value).toEqual('harry potter');
+    await waitFor(() => act(() => fireEvent.press(searchSubmitButton)));
+    expect(searchInput.props.value).toBeFalsy();
   });
 
-  it('should call onEndReached correctly', () => {
+  it('should call onEndReached correctly', async () => {
     const {
       render: { getByTestId },
       store
     } = renderWithCustomProviders(<Home />, mockPreloadedStateFilled);
+    server.listen();
     const booksFlatlist = getByTestId(/books-flatlist/i);
 
-    fireEvent(booksFlatlist, 'onEndReached');
-    act(() => store.dispatch(FETCH_BOOKS_SUCCESS([])));
-    fireEvent(booksFlatlist, 'onEndReached');
-
+    await waitFor(() => act(() => fireEvent(booksFlatlist, 'onEndReached')));
     expect(store.getState().books.isEnd).toBeTruthy();
+
+    await waitFor(() => act(() => fireEvent(booksFlatlist, 'onEndReached')));
   });
 
   it('should navigate to book details screen', () => {
@@ -123,7 +98,7 @@ describe('Home', () => {
     expect(filterModal.props.visible).toBeTruthy();
   });
 
-  it('should work correctly on 401 error', async () => {
+  it('should work correctly on api error', async () => {
     server.listen();
     const {
       render: { getByPlaceholderText, getByTestId },
@@ -138,7 +113,7 @@ describe('Home', () => {
 
     expect(store.getState().books.error).toStrictEqual({});
     await waitFor(() => act(() => fireEvent.press(searchSubmitButton)));
-    act(() => store.dispatch(FETCH_BOOKS_ERROR(new Error('message'))));
-    expect(store.getState().books.error).toStrictEqual(Error('message'));
+
+    expect(store.getState().books.error.name).toStrictEqual('AxiosError');
   });
 });

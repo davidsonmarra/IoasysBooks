@@ -27,14 +27,18 @@ export function Home() {
   const [filterModalVisible, setFilterModalVisible] = useState(false);
   const [offset, setOffset] = useState(1);
   const { navigate } = useNavigation<NavigationProp<AuthRootStackParamList, 'Home'>>();
+
   const dispatch = useDispatch();
   const { isEnd, booksData, loadingFetchBooks, category } = useSelector(
     ({ books }: IRootState) => books
   );
+
   const { control, getValues, handleSubmit, reset } = useForm<IFormSearch>({
     resolver: yupResolver(schema),
     mode: 'onSubmit'
   });
+
+  const getFieldValue = (value: keyof IFormSearch) => getValues(value) || '';
 
   const handleFilterModal = () => setFilterModalVisible(prev => !prev);
 
@@ -42,6 +46,10 @@ export function Home() {
     dispatch(RESET_BOOKS());
     dispatch(LOGOUT());
   };
+
+  function handleGoToBookDetails(book: BookDTO) {
+    navigate('BookDetailsScreen', { book });
+  }
 
   const onReset = () => {
     setOffset(1);
@@ -59,7 +67,7 @@ export function Home() {
 
   const onEndReached = () => {
     if (!isEnd) {
-      dispatch(FETCH_BOOKS({ offset: offset + 1, category, search: getValues('search') || '' }));
+      dispatch(FETCH_BOOKS({ offset: offset + 1, category, search: getFieldValue('search') }));
       setOffset(offset + 1);
     }
   };
@@ -75,10 +83,6 @@ export function Home() {
       <StyledFooter />
     );
 
-  function handleGoToBookDetails(book: BookDTO) {
-    navigate('BookDetailsScreen', { book });
-  }
-
   const renderItem = ({ item }: { item: BookDTO }) => (
     <CardBook data={item} handleGoToBookDetails={book => handleGoToBookDetails(book)} />
   );
@@ -88,16 +92,16 @@ export function Home() {
       colors={[colors.button]}
       tintColor={colors.button}
       refreshing={loadingFetchBooks}
-      onRefresh={() => onSubmit({ search: getValues('search') || '' })}
+      onRefresh={() => onSubmit({ search: getFieldValue('search') })}
     />
   );
 
   useEffect(() => {
-    dispatch(FETCH_BOOKS({ offset, category, search: getValues('search') || '' }));
+    dispatch(FETCH_BOOKS({ offset, category, search: getFieldValue('search') }));
   }, []);
 
   return (
-    <StyledContainer>
+    <StyledContainer testID='HomeScreen'>
       <StyledHeader>
         <StyledTitle>
           <StyledLogo />
@@ -114,7 +118,7 @@ export function Home() {
           placeholder='Procure um livro'
           autoCorrect={false}
           autoCapitalize='none'
-          searchValue={getValues('search')}
+          searchValue={getFieldValue('search')}
           onSubmit={handleSubmit(onSubmit)}
           reset={onReset}
         />
@@ -140,7 +144,7 @@ export function Home() {
         visible={filterModalVisible}
         handleModal={handleFilterModal}
         setOffset={setOffset}
-        search={getValues('search')}
+        search={getFieldValue('search')}
       />
     </StyledContainer>
   );

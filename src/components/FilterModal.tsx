@@ -18,7 +18,7 @@ interface Props extends ModalProps {
   search: string;
 }
 
-export function FilterModal({ visible, handleModal, setOffset, search = '' }: Props) {
+export function FilterModal({ visible, handleModal, setOffset, search }: Props) {
   const [category, setCategory] = useState({} as CategoryProps);
   const dispatch = useDispatch();
 
@@ -32,7 +32,6 @@ export function FilterModal({ visible, handleModal, setOffset, search = '' }: Pr
 
   function submit() {
     dispatch(RESET_BOOKS());
-    console.log('category', category);
     dispatch(FETCH_BOOKS({ offset: 1, category, search: search }));
     setOffset(1);
     handleModal();
@@ -61,6 +60,7 @@ export function FilterModal({ visible, handleModal, setOffset, search = '' }: Pr
                   isSelected={item.key === category.key}
                   onPress={() => handleSelectCategory(item)}
                   key={item.key}
+                  testID={`category-${item.key}-button`}
                 >
                   <StyledCategoryName isSelected={item.key === category.key}>
                     {item.title}
@@ -69,7 +69,7 @@ export function FilterModal({ visible, handleModal, setOffset, search = '' }: Pr
               ))}
             </StyledCategories>
           </StyledCategory>
-          <StyledSubmit onPress={submit}>
+          <StyledSubmit accessibilityLabel='submit filter' onPress={submit}>
             <StyledSubmitText>Filtrar</StyledSubmitText>
           </StyledSubmit>
         </StyledContent>
@@ -120,6 +120,7 @@ const StyledClose = styled(CloseSvg).attrs({
 const StyledCategory = styled.View``;
 
 const StyledCategoryTitle = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.medium};
   font-size: ${RFValue(12)}px;
   margin-bottom: ${RFValue(16)}px;
   color: ${({ theme }) => theme.colors.dark};

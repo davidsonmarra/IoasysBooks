@@ -21,6 +21,7 @@ module.exports = {
       lines: 80
     }
   },
+  collectCoverageFrom: ['src/**/*.[jt]s?(x)', '!src/**/*.d.[jt]s?(x)', '!src/@types/**'],
   moduleNameMapper: {
     '\\.svg': '<rootDir>/__mocks__/svgMock.js'
   },

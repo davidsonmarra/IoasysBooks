@@ -74,6 +74,10 @@ export function SignIn() {
   };
 
   useEffect(() => {
+    animation.value = withTiming(1, { duration: 1200, easing: Easing.in(Easing.ease) });
+  }, []);
+
+  useEffect(() => {
     isObjectEmpty(errors) &&
       Toast.show({
         type: 'error',
@@ -86,10 +90,6 @@ export function SignIn() {
         }
       });
   }, [errors]);
-
-  useEffect(() => {
-    animation.value = withTiming(1, { duration: 1200, easing: Easing.in(Easing.ease) });
-  }, []);
 
   useEffect(() => {
     if (isObjectEmpty(error)) {
@@ -109,7 +109,7 @@ export function SignIn() {
   }, [error]);
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    <TouchableWithoutFeedback testID='SignInScreen' onPress={Keyboard.dismiss}>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}

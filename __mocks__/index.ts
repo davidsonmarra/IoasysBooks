@@ -7,11 +7,15 @@ interface IMockFetchDataBooks {
   totalItems: number;
 }
 
+interface IMockFetchDataSignIn {
+  data: { id: string; name: string; birthdate: string; gender: 'M' | 'F' };
+}
+
 export const mockBook: BookDTO = {
   id: '1',
   title: 'Test Title',
   imageUrl: 'https://www.test.com',
-  authors: ['Test Author'],
+  authors: ['Test Author 1', 'Test Author 2'],
   pageCount: 100,
   publisher: 'Test Publisher',
   published: 1980,
@@ -89,4 +93,19 @@ export const mockFetchDataBooks: IMockFetchDataBooks = {
   page: 1,
   totalPages: 1,
   totalItems: 2
+};
+
+export const mockFetchDataSignIn: IMockFetchDataSignIn = {
+  data: {
+    id: 'testID',
+    name: 'Davidson',
+    birthdate: '09/11/2001',
+    gender: 'M'
+  }
+};
+
+export const mockFetchDataRefresh = {
+  data: {
+    refreshToken: 'refresh-token-response'
+  }
 };

@@ -89,6 +89,7 @@ export function Input({
             onChangeText={onChange}
             value={value}
             ref={inputRef}
+            testID={`input-${name}`}
             {...rest}
           />
           {name === 'password' && <Button disabled={isObjectEmpty(errors)} onPress={onSubmit} />}

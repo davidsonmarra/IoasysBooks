@@ -4,7 +4,7 @@ import callbackRequest from './interceptors/callbacks/request/request';
 const createApiService = (baseURL: string, timeout: number, headers: AxiosRequestHeaders) => {
   const api = axios.create({
     baseURL,
-    timeout: timeout || 8000,
+    timeout: timeout,
     headers: {
       ...headers,
       'Content-Type': 'application/json'

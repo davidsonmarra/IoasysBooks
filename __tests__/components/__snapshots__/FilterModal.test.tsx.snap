@@ -1,0 +1,972 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter Modal should match a snapshot 1`] = `
+<Modal
+  animationType="fade"
+  hardwareAccelerated={false}
+  onRequestClose={[MockFunction]}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#00000052",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+  testID="filter-modal"
+  transparent={true}
+  visible={true}
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#00000052",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "center",
+          "paddingBottom": 0,
+          "paddingLeft": 31,
+          "paddingRight": 31,
+          "paddingTop": 0,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#FFFFFF",
+            "paddingBottom": 47,
+            "paddingLeft": 31,
+            "paddingRight": 31,
+            "paddingTop": 31,
+            "width": "100%",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "flex-end",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "borderColor": "#00000052",
+              "borderRadius": 31,
+              "borderStyle": "solid",
+              "borderWidth": 2,
+              "height": 63,
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": 63,
+            }
+          }
+        >
+          <SvgMock
+            height={31}
+            style={
+              Array [
+                Object {},
+              ]
+            }
+            width={31}
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#333333",
+                "fontFamily": "Heebo-Medium",
+                "fontSize": 24,
+                "marginBottom": 31,
+              },
+            ]
+          }
+        >
+          Selecione a categoria
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#00000052",
+                "borderRadius": 86,
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "marginBottom": 16,
+                "marginRight": 16,
+                "opacity": 1,
+                "paddingBottom": 12,
+                "paddingLeft": 31,
+                "paddingRight": 31,
+                "paddingTop": 12,
+              }
+            }
+            testID="category-biographies-button"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontFamily": "Heebo-Regular",
+                    "fontSize": 24,
+                  },
+                ]
+              }
+            >
+              Biografia
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#00000052",
+                "borderRadius": 86,
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "marginBottom": 16,
+                "marginRight": 16,
+                "opacity": 1,
+                "paddingBottom": 12,
+                "paddingLeft": 31,
+                "paddingRight": 31,
+                "paddingTop": 12,
+              }
+            }
+            testID="category-collections-button"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontFamily": "Heebo-Regular",
+                    "fontSize": 24,
+                  },
+                ]
+              }
+            >
+              Coleções
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#00000052",
+                "borderRadius": 86,
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "marginBottom": 16,
+                "marginRight": 16,
+                "opacity": 1,
+                "paddingBottom": 12,
+                "paddingLeft": 31,
+                "paddingRight": 31,
+                "paddingTop": 12,
+              }
+            }
+            testID="category-behavior-button"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontFamily": "Heebo-Regular",
+                    "fontSize": 24,
+                  },
+                ]
+              }
+            >
+              Comportamento
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#00000052",
+                "borderRadius": 86,
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "marginBottom": 16,
+                "marginRight": 16,
+                "opacity": 1,
+                "paddingBottom": 12,
+                "paddingLeft": 31,
+                "paddingRight": 31,
+                "paddingTop": 12,
+              }
+            }
+            testID="category-tales-button"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontFamily": "Heebo-Regular",
+                    "fontSize": 24,
+                  },
+                ]
+              }
+            >
+              Contos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#00000052",
+                "borderRadius": 86,
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "marginBottom": 16,
+                "marginRight": 16,
+                "opacity": 1,
+                "paddingBottom": 12,
+                "paddingLeft": 31,
+                "paddingRight": 31,
+                "paddingTop": 12,
+              }
+            }
+            testID="category-literary-criticism-button"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontFamily": "Heebo-Regular",
+                    "fontSize": 24,
+                  },
+                ]
+              }
+            >
+              Crítica Literária
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#00000052",
+                "borderRadius": 86,
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "marginBottom": 16,
+                "marginRight": 16,
+                "opacity": 1,
+                "paddingBottom": 12,
+                "paddingLeft": 31,
+                "paddingRight": 31,
+                "paddingTop": 12,
+              }
+            }
+            testID="category-scienceFiction-button"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontFamily": "Heebo-Regular",
+                    "fontSize": 24,
+                  },
+                ]
+              }
+            >
+              Ficção Científica
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#00000052",
+                "borderRadius": 86,
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "marginBottom": 16,
+                "marginRight": 16,
+                "opacity": 1,
+                "paddingBottom": 12,
+                "paddingLeft": 31,
+                "paddingRight": 31,
+                "paddingTop": 12,
+              }
+            }
+            testID="category-folklore-button"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontFamily": "Heebo-Regular",
+                    "fontSize": 24,
+                  },
+                ]
+              }
+            >
+              Folclore
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#00000052",
+                "borderRadius": 86,
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "marginBottom": 16,
+                "marginRight": 16,
+                "opacity": 1,
+                "paddingBottom": 12,
+                "paddingLeft": 31,
+                "paddingRight": 31,
+                "paddingTop": 12,
+              }
+            }
+            testID="category-genealogy-button"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontFamily": "Heebo-Regular",
+                    "fontSize": 24,
+                  },
+                ]
+              }
+            >
+              Genealogia
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#00000052",
+                "borderRadius": 86,
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "marginBottom": 16,
+                "marginRight": 16,
+                "opacity": 1,
+                "paddingBottom": 12,
+                "paddingLeft": 31,
+                "paddingRight": 31,
+                "paddingTop": 12,
+              }
+            }
+            testID="category-humor-button"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontFamily": "Heebo-Regular",
+                    "fontSize": 24,
+                  },
+                ]
+              }
+            >
+              Humor
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#00000052",
+                "borderRadius": 86,
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "marginBottom": 16,
+                "marginRight": 16,
+                "opacity": 1,
+                "paddingBottom": 12,
+                "paddingLeft": 31,
+                "paddingRight": 31,
+                "paddingTop": 12,
+              }
+            }
+            testID="category-children-button"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontFamily": "Heebo-Regular",
+                    "fontSize": 24,
+                  },
+                ]
+              }
+            >
+              Infantojuvenis
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#00000052",
+                "borderRadius": 86,
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "marginBottom": 16,
+                "marginRight": 16,
+                "opacity": 1,
+                "paddingBottom": 12,
+                "paddingLeft": 31,
+                "paddingRight": 31,
+                "paddingTop": 12,
+              }
+            }
+            testID="category-games-button"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontFamily": "Heebo-Regular",
+                    "fontSize": 24,
+                  },
+                ]
+              }
+            >
+              Jogos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#00000052",
+                "borderRadius": 86,
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "marginBottom": 16,
+                "marginRight": 16,
+                "opacity": 1,
+                "paddingBottom": 12,
+                "paddingLeft": 31,
+                "paddingRight": 31,
+                "paddingTop": 12,
+              }
+            }
+            testID="category-newspapers-button"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontFamily": "Heebo-Regular",
+                    "fontSize": 24,
+                  },
+                ]
+              }
+            >
+              Jornais
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#00000052",
+                "borderRadius": 86,
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "marginBottom": 16,
+                "marginRight": 16,
+                "opacity": 1,
+                "paddingBottom": 12,
+                "paddingLeft": 31,
+                "paddingRight": 31,
+                "paddingTop": 12,
+              }
+            }
+            testID="category-brazilian-literature-button"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontFamily": "Heebo-Regular",
+                    "fontSize": 24,
+                  },
+                ]
+              }
+            >
+              Literatura Brasileira
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#00000052",
+                "borderRadius": 86,
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "marginBottom": 16,
+                "marginRight": 16,
+                "opacity": 1,
+                "paddingBottom": 12,
+                "paddingLeft": 31,
+                "paddingRight": 31,
+                "paddingTop": 12,
+              }
+            }
+            testID="category-foreign-literature-button"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontFamily": "Heebo-Regular",
+                    "fontSize": 24,
+                  },
+                ]
+              }
+            >
+              Literatura Estrangeira
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#00000052",
+                "borderRadius": 86,
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "marginBottom": 16,
+                "marginRight": 16,
+                "opacity": 1,
+                "paddingBottom": 12,
+                "paddingLeft": 31,
+                "paddingRight": 31,
+                "paddingTop": 12,
+              }
+            }
+            testID="category-rare-books-button"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontFamily": "Heebo-Regular",
+                    "fontSize": 24,
+                  },
+                ]
+              }
+            >
+              Livros Raros
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#00000052",
+                "borderRadius": 86,
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "marginBottom": 16,
+                "marginRight": 16,
+                "opacity": 1,
+                "paddingBottom": 12,
+                "paddingLeft": 31,
+                "paddingRight": 31,
+                "paddingTop": 12,
+              }
+            }
+            testID="category-manuscripts-button"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontFamily": "Heebo-Regular",
+                    "fontSize": 24,
+                  },
+                ]
+              }
+            >
+              Manuscritos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#00000052",
+                "borderRadius": 86,
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "marginBottom": 16,
+                "marginRight": 16,
+                "opacity": 1,
+                "paddingBottom": 12,
+                "paddingLeft": 31,
+                "paddingRight": 31,
+                "paddingTop": 12,
+              }
+            }
+            testID="category-poetry-button"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontFamily": "Heebo-Regular",
+                    "fontSize": 24,
+                  },
+                ]
+              }
+            >
+              Poesia
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#00000052",
+                "borderRadius": 86,
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "marginBottom": 16,
+                "marginRight": 16,
+                "opacity": 1,
+                "paddingBottom": 12,
+                "paddingLeft": 31,
+                "paddingRight": 31,
+                "paddingTop": 12,
+              }
+            }
+            testID="category-another-subjects-button"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontFamily": "Heebo-Regular",
+                    "fontSize": 24,
+                  },
+                ]
+              }
+            >
+              Outros
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessibilityLabel="submit filter"
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignSelf": "center",
+            "borderColor": "#B22E6F",
+            "borderRadius": 86,
+            "borderStyle": "solid",
+            "borderWidth": 2,
+            "marginTop": 94,
+            "opacity": 1,
+            "paddingBottom": 24,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 24,
+            "width": 177,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#B22E6F",
+                "fontFamily": "Heebo-Medium",
+              },
+            ]
+          }
+        >
+          Filtrar
+        </Text>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;

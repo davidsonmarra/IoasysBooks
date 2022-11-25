@@ -1,11 +1,12 @@
 import React from 'react';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { BookDetails } from '../../presentational';
 import AuthRootStackParamList from '../../@types/AuthRootStackParamList';
+import { RouteProp, useRoute } from '@react-navigation/native';
 
-type Props = NativeStackScreenProps<AuthRootStackParamList, 'BookDetailsScreen'>;
+export function BookDetailsScreen() {
+  const {
+    params: { book }
+  } = useRoute<RouteProp<AuthRootStackParamList, 'BookDetailsScreen'>>();
 
-export function BookDetailsScreen({ route }: Props) {
-  const { book } = route.params;
   return <BookDetails book={book} />;
 }
