@@ -8,18 +8,18 @@ import {
   LOGIN_ON_START,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
+  LOGIN_FAILURE_ON_START,
   SET_AUTHORIZATIONS,
   LOGOUT
 } from '../slices/profileSlice';
 
-async function requestSignIn(email: string, password: string) {
-  return api
+const requestSignIn = async (email: string, password: string) =>
+  api
     .post('/auth/sign-in', {
       email,
       password
     })
     .then(response => response);
-}
 
 function* login({ payload: { email, password } }: ReturnType<typeof LOGIN>) {
   // 'desafio@ioasys.com.br'
@@ -81,7 +81,8 @@ export function* loginOnStart() {
       );
       yield put(LOGIN_SUCCESS(headers.authorization));
     } catch (error) {
-      if (error instanceof AxiosError || error instanceof Error) yield put(LOGIN_FAILURE(error));
+      if (error instanceof AxiosError || error instanceof Error)
+        yield put(LOGIN_FAILURE_ON_START(error));
     }
   }
 }
