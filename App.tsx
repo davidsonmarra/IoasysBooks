@@ -8,7 +8,7 @@
  * @format
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import { StatusBar } from 'react-native';
 import theme from './src/global/styles/theme';
@@ -17,6 +17,7 @@ import Toast, { ErrorToast, ToastOptions } from 'react-native-toast-message';
 import { RFValue } from 'react-native-responsive-fontsize';
 import store from './src/store';
 import { Provider } from 'react-redux';
+import SplashScreen from 'react-native-splash-screen';
 
 function App() {
   const toastConfig = {
@@ -32,6 +33,10 @@ function App() {
       />
     )
   };
+
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
 
   return (
     <Provider store={store}>

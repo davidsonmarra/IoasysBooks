@@ -67,6 +67,6 @@ describe('Routes', () => {
     const { store } = renderWithCustomProviders(<Routes />, mockPreloadedStateEmpty);
 
     await waitFor(() => act(() => store.dispatch(LOGIN_ON_START())));
-    expect(store.getState().profile.error.name).toEqual('AxiosError');
+    expect(store.getState().profile.errorOnStart.name).toEqual('AxiosError');
   });
 });

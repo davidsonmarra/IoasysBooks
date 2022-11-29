@@ -5,6 +5,7 @@ interface Props {
   email: string;
   token: string;
   error: Error | AxiosError;
+  errorOnStart: Error | AxiosError;
   isLogged: boolean;
   isLoading: boolean;
 }
@@ -24,6 +25,7 @@ const initialState: Props = {
   email: '',
   token: '',
   error: {} as Error | AxiosError,
+  errorOnStart: {} as Error | AxiosError,
   isLogged: false,
   isLoading: false
 };
@@ -52,6 +54,11 @@ const profileSlice = createSlice({
       error: payload,
       isLoading: false
     }),
+    LOGIN_FAILURE_ON_START: (state, { payload }: PayloadAction<Error | AxiosError>) => ({
+      ...state,
+      errorOnStart: payload,
+      isLoading: false
+    }),
     SET_AUTHORIZATIONS: (state, { payload }: PayloadAction<IToken>) => ({
       ...state,
       token: payload.token
@@ -68,6 +75,13 @@ const profileSlice = createSlice({
 
 const { actions, reducer } = profileSlice;
 
-export const { LOGIN, LOGIN_ON_START, LOGIN_SUCCESS, LOGIN_FAILURE, SET_AUTHORIZATIONS, LOGOUT } =
-  actions;
+export const {
+  LOGIN,
+  LOGIN_ON_START,
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  LOGIN_FAILURE_ON_START,
+  SET_AUTHORIZATIONS,
+  LOGOUT
+} = actions;
 export default reducer;

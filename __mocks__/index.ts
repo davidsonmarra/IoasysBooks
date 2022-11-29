@@ -31,6 +31,7 @@ export const mockPreloadedStateEmpty = {
     email: '',
     token: '',
     error: {} as Error,
+    errorOnStart: {} as Error,
     isLogged: false,
     isLoading: false
   },
@@ -49,6 +50,7 @@ export const mockPreloadedStateFilled = {
     email: 'davidson',
     token: 'teste',
     error: {} as Error,
+    errorOnStart: {} as Error,
     isLogged: true,
     isLoading: false
   },
