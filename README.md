@@ -1,7 +1,5 @@
 ![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![Expo](https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
-[![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
 
 <div align="center" >
   <img align="center" alt="Logo do app" src="./src/assets/logo.svg">
@@ -34,6 +32,10 @@
 
 <h2 id="resultado">📱 Resultado</h2>
 <div align="center">
+
+
+https://user-images.githubusercontent.com/80720221/221445960-570220f2-9455-42ca-ac94-e169ba71754d.mp4
+
 
 </div>
 
